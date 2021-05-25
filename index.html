@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jinytek Enterprise</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Bootstrap style -->
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css"> <!-- Templatemo style -->
+
+    <style>
+        #navbar-default {
+            transition: 500ms ease;
+            background: #f8f9fa;
+        }
+
+        .button {
+            background: none;
+            border: 2px solid white;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            width: 140px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        a.dropdown-item {
+            height: 50px;
+            line-height: 45px;
+            border-bottom: 1px solid #000;
+            margin: 0px;
+        }
+        
+        a.dropdown-item:hover {
+            color: yellow;
+            background-color: #000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        a:link {
+            color: rgb(128, 68, 0);
+            background-color: transparent;
+            text-decoration: none;
+            text-transform: bold;
+        }
+
+        a:visited {
+            color: red;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: yellow;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        .starting_page {
+            background-image: url("img/slider1_01_2ebe96e91f.webp");
+            height: 560px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .about_image {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-horizontal {
+            display: flex;
+            flex: 1 1 auto;
+        }
+
+        .title {
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 10px
+        }
+
+        .content {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            margin: auto;
+            overflow: hidden
+        }
+
+        .content .content-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            height: 99%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            -webkit-transition: all 0.4s ease-in-out 0s;
+            -moz-transition: all 0.4s ease-in-out 0s;
+            transition: all 0.4s ease-in-out 0s
+        }
+
+        .content:hover .content-overlay {
+            opacity: 1
+        }
+
+        .content-image {
+            width: 100%
+        }
+
+        .content img {
+            box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+            border-radius: 5px
+        }
+
+        .content-details {
+            position: absolute;
+            text-align: center;
+            padding-left: 1em;
+            padding-right: 1em;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            -moz-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s
+        }
+
+        .content:hover .content-details {
+            top: 50%;
+            left: 50%;
+            opacity: 1
+        }
+
+        .content-details h3 {
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5em;
+            text-transform: uppercase
+        }
+
+        .content-details p {
+            color: #fff;
+            font-size: 0.8em
+        }
+
+        .fadeIn-bottom {
+            top: 80%
+        }
+
+        .footer_style {
+            background-color: #a29bfe;
+            height: auto;
+
+        }
+    </style>
+</head>
+
+<body style="font-family: sans-serif;">
+    <nav class="navbar navbar-expand-lg p-2 navbar-light bg-light sticky-top">
+        <a class="navbar-brand pl-5" href="#">
+            Jinytek
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto pr-5 text-capitalize">
+                <li class="nav-item pr-3">
+                    <a class="nav-link active" style="font-size: 17px;" aria-current="page" href="#">About Us</a>
+                </li>
+                <li class="nav-item dropdown pr-3 py-0">
+                    <a class="nav-link dropdown-toggle" style="font-size: 17px;" href="products.html"
+                    id="navbarDropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false" aria-current="page">
+                    Product
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="pantatec_ultimate.html">PantaTec ULTIMATE</a>
+                        <a class="dropdown-item" href="stainless_steel_shot.html">Stainless Steel Shot</a>
+                        <a class="dropdown-item" href="stainless_steel_grit.html">Stainless Steel Grit</a>
+                        <a class="dropdown-item" href="steel_shot.html">Steel Shot & Grit</a>
+                        <a class="dropdown-item" href="stainless_steel_cut.html">Stainless Steel Cut Wire Shot</a>
+                        <a class="dropdown-item" href="alluminium_cut_wire.html">Alluminium Cut wire Shot</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown pr-3 py-0">
+                    <a class="nav-link dropdown-toggle" style="font-size: 17px;" href="pantatec_application.html"
+                    id="navbarDropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false" aria-current="page">
+                    PantaTec Applications
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="application.html">Application</a>
+                        <a class="dropdown-item" href="water_penetration_test.html">Water Penetration Test</a>
+                        <a class="dropdown-item" href="blasting_media_additive.html">Blasting Media Additive</a>
+                        <a class="dropdown-item" href="process_control.html">Process Control</a>
+                        <a class="dropdown-item" href="injecto_dosing.html">INJECTO Dosing Device</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-3">
+                    <a class="nav-link " style="font-size: 17px;" aria-current="page" href="product_image.html">Product
+                        Images</a>
+                </li>
+                <li class="nav-item pr-3">
+                    <a class="nav-link " style="font-size: 17px;" aria-current="page" href="contact.html">Contact
+                        Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-5 starting_page">
+        <div class="container main_header" style="padding:150px">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="tm-banner-header">
+                    <h1 class="text-uppercase tm-banner-title ml6" style="font-weight: bold;">
+                        <span class="text-wrapper">
+                            <span class="letters">Jinytek Enterprise</span>
+                        </span>
+                    </h1>
+                    <p class="tm-banner-subtitle text-center">Surface Cleaning Expert</p>
+                    <form class="text-center" action="contact.html" method="get">
+                        <button class="button"><span>ContactUs</span></button>
+                    </form>
+                </div>
+                <div class="row tm-banner-row" id="tm-section-search">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid" style="padding: 4em; background-color: #eeebe9;">
+        <div class="container" style="padding: 4em; background-color: white;">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <img src="https://www-yf1pm.skipdns.link/wp-content/uploads/2021/02/7.jpg" alt="" width="507px"
+                        height="285px" style="width: 100%; height: auto;">
+                </div>
+                <div class="col-md-6">
+                    <h1 style="font-size: 45px;">About Us</h1>
+                    <p style="margin: 0px 0px 17px; padding:10px; font-size:17px; text-align:justify;">Established in
+                        the year 2014. We
+                        “JINYTEK ENTERPRISES” are one of the renowned manufacturers,
+                        Importers and suppliers of a diverse range of metal abrasives including cast steel shots, cast
+                        steel grits, steel cut wire shots, stainless steel shots, stainless steel cut wire shots and
+                        other industrial abrasives used for Surface Preparation prior to Painting ,Coating , rust
+                        removal, scales and Shot Peening of heat treated components. The offered range finds
+                        applications in field such as Ferrous and Non ferrous Foundries and forgings , Automobiles
+                        Industry, Railways, fasteners Industry, Aluminum Extrusion etc. Apart from this We are
+                        representing PantaTec GmbH, Germany all over India, who is manufacturer of PantaTec ULTIMATE
+                        additive for cleaning all metallic blasting media and for the improvement of blast results in
+                        blasting system. This Cleaning Additive cleans Shots, Oil and Grease while shot blasting / shot
+                        peening and eliminate Fire Problems arising from Shot Blasting Dust.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="padding-top:30px; padding-bottom:30px; background-color:white;">
+        <div class="container p-5" style="background-color: #e9b44c;">
+            <div class="row pb-5">
+                <div class="col-md-4">
+                    <div class="content" style="height: auto;"> <a href="pantatec_ultimate.html">
+                            <div class="content-overlay"></div> <img class="content-image"
+                                src="img/pantatec_ultimate.jpg" height="294px">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title">PantaTec ULTIMATE</h3>
+                                <p class="content-text">In practice, a powder-form mixture of different mineral
+                                    components has proven to be the additive which can be most simply combined with the
+                                    operating mix....</p>
+                            </div>
+                        </a> </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="content"> <a href="steel_shot.html">
+                            <div class="content-overlay"></div> <img class="content-image"
+                                src="img/steel_shot.jpg" height="294px">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title">Steel Shot & Grit</h3>
+                                <p class="content-text">Steel shot is spherical metallic abrasive media produced by the
+                                    molten steel by means of atomizing process. Metalworking Industries are the main
+                                    users of Steel...</p>
+                            </div>
+                        </a> </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="content"> <a href="stainless_steel_grit.html">
+                            <div class="content-overlay"></div> <img class="content-image"
+                                src="img/stainless_steel_grit.jpg" height="294px">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title">Stainless Steel Grit</h3>
+                                <p class="content-text">Stainless Steel grit is random and angular. Stainless Steel shot
+                                    will provide a smoother surface than Stainless steel grit. Stainless Steel grit,
+                                    given its’ shape,...</p>
+                            </div>
+                        </a> </div>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <div class="content"> <a href="stainless_steel_shot.html">
+                            <div class="content-overlay"></div> <img class="content-image"
+                                src="img/stainless_steel_shot.jpg" height="294px">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title">Stainless Steel Shot</h3>
+                                <p class="content-text">Stainless Steel shot are special types of abrasives and can be
+                                    used where high quality of surface finish is required. Stainless Steel shot are
+                                    mainly...</p>
+                            </div>
+                        </a> </div>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <div class="content"> <a href="stainless_steel_cut.html">
+                            <div class="content-overlay"></div> <img class="content-image"
+                                src="img/stainless_steel_cut.jpg" height="294px">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title">Stainless Steel Cut Wire Shot</h3>
+                                <p class="content-text">Our stainless steel cut wire shot are produced using type AISI
+                                    316/304/202/430 Stainless steel wire having uniform hardness of 42 to 48 HRC or
+                                    according...</p>
+                            </div>
+                        </a> </div>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <div class="content"> <a href="alluminium_cut_wire.html">
+                            <div class="content-overlay"></div> <img class="content-image"
+                                src="img/alluminium_cut_wire.jpg" height="294px">
+                            <div class="content-details fadeIn-bottom">
+                                <h3 class="content-title">Alluminium Cut Wire Shot</h3>
+                                <p class="content-text">Aluminum Cut wire shots are essentially produced using aluminum
+                                    alloy wire with the assistance of exceptional cutting machines. Aluminum cut wire
+                                    shot is accessible in...</p>
+                            </div>
+                        </a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_style text-white text-center container-fluid p-5">
+        <p class="mb-0" style="font-size: 20px;">Copyright © <span class="tm-current-year">2021</span> Jinytek
+            Enterprise</p>
+    </div>
+
+    <script>
+    </script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/datepicker.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+
+
+</body>
+
+</html>
