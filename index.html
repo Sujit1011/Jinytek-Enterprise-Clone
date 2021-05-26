@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Jinytek Enterprise</title>
+    <link rel="icon" href="logo_icon.jpg">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Google web font "Open Sans" -->
@@ -22,6 +23,16 @@
             transition: 500ms ease;
             background: #f8f9fa;
         }
+
+        .ml2 {
+            font-weight: 900;
+            font-size: 3.5em;
+          }
+          
+          .ml2 .letter {
+            display: inline-block;
+            line-height: 1em;
+          }
 
         .button {
             background: none;
@@ -103,7 +114,6 @@
 
         .starting_page {
             background-image: url("img/slider1_01_2ebe96e91f.webp");
-            height: 560px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -211,8 +221,8 @@
 
 <body style="font-family: sans-serif;">
     <nav class="navbar navbar-expand-lg p-2 navbar-light bg-light sticky-top">
-        <a class="navbar-brand pl-5" href="#">
-            Jinytek
+        <a class="navbar-brand pl-5" href="index.html">
+            <img src="logo.jpg" width="55" class="d-inline-block align-top" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -222,7 +232,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto pr-5 text-capitalize">
                 <li class="nav-item pr-3">
-                    <a class="nav-link active" style="font-size: 17px;" aria-current="page" href="#">About Us</a>
+                    <a class="nav-link active" style="font-size: 17px;" aria-current="page" href="index.html">About Us</a>
                 </li>
                 <li class="nav-item dropdown pr-3 py-0">
                     <a class="nav-link dropdown-toggle" style="font-size: 17px;" href="products.html"
@@ -266,10 +276,10 @@
     </nav>
 
     <div class="container-fluid p-5 starting_page">
-        <div class="container main_header" style="padding:150px">
+        <div class="container main_header" style="padding:150px; padding-bottom:150px;">
             <div class="d-flex justify-content-center align-items-center">
                 <div class="tm-banner-header">
-                    <h1 class="text-uppercase tm-banner-title ml6" style="font-weight: bold;">
+                    <h1 class="text-uppercase tm-banner-title ml2" style="font-weight: bold;">
                         <span class="text-wrapper">
                             <span class="letters">Jinytek Enterprise</span>
                         </span>
@@ -317,7 +327,7 @@
     <div class="container-fluid" style="padding-top:30px; padding-bottom:30px; background-color:white;">
         <div class="container p-5" style="background-color: #e9b44c;">
             <div class="row pb-5">
-                <div class="col-md-4">
+                <div class="col-md-4 pt-5">
                     <div class="content" style="height: auto;"> <a href="pantatec_ultimate.html">
                             <div class="content-overlay"></div> <img class="content-image"
                                 src="img/pantatec_ultimate.jpg" height="294px">
@@ -329,7 +339,7 @@
                             </div>
                         </a> </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 pt-5">
                     <div class="content"> <a href="steel_shot.html">
                             <div class="content-overlay"></div> <img class="content-image"
                                 src="img/steel_shot.jpg" height="294px">
@@ -341,7 +351,7 @@
                             </div>
                         </a> </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 pt-5">
                     <div class="content"> <a href="stainless_steel_grit.html">
                             <div class="content-overlay"></div> <img class="content-image"
                                 src="img/stainless_steel_grit.jpg" height="294px">
@@ -397,7 +407,27 @@
             Enterprise</p>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script>
+        var textWrapper = document.querySelector('.ml2');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+        .add({
+            targets: '.ml2 .letter',
+            scale: [4,1],
+            opacity: [0,1],
+            translateZ: 0,
+            easing: "easeOutExpo",
+            duration: 950,
+            delay: (el, i) => 70*i
+        }).add({
+            targets: '.ml2',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
     </script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/popper.min.js"></script>
